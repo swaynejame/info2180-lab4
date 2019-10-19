@@ -32,6 +32,15 @@ function tictactoe(){
 		});//end inner
 	});//end outer
 
+	boardBoxes.forEach(element=>{
+		element.addEventListener("mouseover",function(){
+			element.classList.add("hover");
+		});
+		element.addEventListener("mouseleave",function(){
+			element.classList.remove("hover");
+		});
+	});
+
 	function gameOver(){
 		if(boardBoxes[0].textContent==boardBoxes[1].textContent && boardBoxes[1].textContent==boardBoxes[2].textContent &&boardBoxes[0].textContent==boardBoxes[2].textContent && boardBoxes[2].textContent !== "")
 			results(boardBoxes[0].textContent);
