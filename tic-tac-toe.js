@@ -2,21 +2,22 @@ function tictactoe(){
 
 	var board = document.querySelector("#board");
 	var boardBoxes = board.querySelectorAll("div");
-	var EMPTY ='';
+	var empty ='';
 	var tracker=0;
 	var cellNum=0;
 	var x_O;
 	var stat = document.querySelector("#status");
+	var newButton = document.querySelector("button");
 
 	boardBoxes.forEach(element =>{
 		element.setAttribute("class","square");//Adds class with value square to each div
-		element.textContent =EMPTY;
+		element.textContent =empty;
 		element.setAttribute("id",cellNum++);
 	});
 
 	boardBoxes.forEach(element => {
 		element.addEventListener("click",function(){
-			if (element.textContent !== EMPTY){
+			if (element.textContent !== empty){
 				return; //alert("Stop trying to cheat");
 			}
 			tracker+=1;
@@ -39,6 +40,15 @@ function tictactoe(){
 		element.addEventListener("mouseleave",function(){
 			element.classList.remove("hover");
 		});
+	});
+
+	newButton.addEventListener("click",function(){
+		boardBoxes.forEach(element=>{
+			element.textContent = empty;
+		});
+		tracker=0;
+		stat.classList.remove("class","you-won");
+		stat.textContent ='Move your mouse over a square and click to play an X';
 	});
 
 	function gameOver(){
