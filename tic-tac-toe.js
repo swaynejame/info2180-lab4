@@ -27,6 +27,7 @@ function tictactoe(){
 			}
 			else{
 				this.textContent='X';
+
 				this.classList.add('square','X');
 			}
 			gameOver();
@@ -46,7 +47,6 @@ function tictactoe(){
 		boardBoxes.forEach(element=>{
 			element.textContent = empty;
 		});
-		tracker=0;
 		stat.classList.remove("class","you-won");
 		stat.textContent ='Move your mouse over a square and click to play an X';
 	});
